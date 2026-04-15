@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="CarFast - Главная" stylesheet="index" script="index">
+	<div id="UpperBlock">
+		<div id="BgDiv"></div>
+		<img id="UpperImg" src="uppermain.jpg">
+		<div id="UpperDiv1">
+			<h2>Ваш надежный автосервис</h2>
+			<p>Профессиональный ремонт и обслуживание автомобилей в вашем городе</p>
+			<a id="UpperButton" href="services">Услуги</a>
+			<img id='UpperDiv1Img' src="carfast.png">
+		</div>
+		<div id="UpperDiv2">
+			<h3>Мы работаем по всей России</h3>
+			<ul>
+				<li>Москва</li>
+				<li>Санкт-Петербург</li>
+				<li>Нижний Новгород</li>
+				<li>И еще более 10 регионов</li>
+			</ul>
+		</div>
+	</div>
+	<div id="Gallery">
+		<h2>Галерея ремонта автомобилей</h2>
+		<p>Наши квалифицированные специалисты помогут с любой проблемой</p>
+		<div id="Showcase">
+			<img class="Showcase" src="/showcase1.jpg">
+			<img class="Showcase" src="/showcase2.jpg">
+			<img class="Showcase" src="/showcase3.jpg">
+		</div>
+	</div>
+	<div id="Services">
+		<div class="ReviewsBuffer"></div>
+		<h2>Наши услуги</h2>  
+		<div class="ServiceShowcase">
+			<a id="ServiceBlock1" href="services">
+				<div>
+					<div class="ServiceBackground">
+						<p class="ServiceName">Услуга замены фильтра</p>
+					</div>
+				</div>
+			</a>
+			<a id="ServiceBlock2" href="services">
+				<div>
+					<div class="ServiceBackground">
+						<p class="ServiceName">Уход за шинами</p>
+					</div>
+				</div>
+			</a>
+			<a id="ServiceBlock3" href="services">
+				<div>
+					<div class="ServiceBackground">
+						<p class="ServiceName">Усилитель руля</p>
+					</div>
+				</div>
+			</a>
+			<a id="ServiceBlock4" href="services">
+				<div>
+					<div class="ServiceBackground">
+						<p class="ServiceName">Ремонт подвески</p>
+					</div>
+				</div>
+			</a>
+			<a id="ServiceBlock5" href="services">
+				<div>
+					<div class="ServiceBackground">
+						<p class="ServiceName">Замена масла</p>
+					</div>
+				</div>
+			</a>
+			<a id="ServiceBlock6" href="services">
+				<div>
+					<div class="ServiceBackground">
+						<p class="ServiceName">Диагностика двигателя</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div id="Employment">
+		<h2>Мы всегда рады новым сотрудникам</h2>
+		<div id="EmploymentDiv">
+			<p id="EmploymentPar">CarFast - крупный работадатель в сфере автосервиса. 
+				Оставьте заявку на трудоустройство</p>
+			<img id="EmploymentImg" src="mainemployement.jpg">
+			<a id="EmploymentButton" href="#">Оставить заявку</a>
+		</div>
+	 <form class="Modal" id="Modal" method="POST">
+		<div class="ModalContent">
+			<h2>Форма для трудоустройства</h2>
+			<span class="CloseModal">×</span>
+			<div class="ModalInput">
+				<label for="POST-name">Имя:</label>
+				<input id="InputFirstName" type="text" pattern="[а-яА-Я]*" name="first_name" placeholder="Иван" width="30" required/>
+			</div>
+			<div class="ModalInput">
+				<label for="POST-name">Фамилия:</label>
+				<input id="InputLastName" type="text" pattern="[а-яА-Я]*" name="last_name" placeholder="Иванов" width="30" required/>
+			</div>
+			<div class="ModalInput">
+				<label for="POST-phone">Телефон:</label>
+				<input id="InputPhone" type="tel" pattern="[0-9+]*" name="phone" maxlength="12" placeholder="+12345678910" required/>
+			</div>
+			<div class="ModalInput">
+				<label for="POST-email">E-mail:</label>
+				<input id="InputEmail" type="email" pattern="[0-9A-Za-z@.]*" name="email" placeholder="example@mail.ru" required/>
+			</div>
+			<div class="ModalInput">
+				<label for="POST-pos">Должность:</label>
+				<select id="InputPosition" name="pos">
+					<option value="none">-- Выберите желаемую должность --</option>
+					<option value="mechanic">Автомеханик</option>
+					<option value="bodyworker">Кузовщик</option>
+					<option value="washer">Автомойщик</option>
+					<option value="storekeeper">Кладовщик</option>
+					<option value="manager">Менеджер</option>
+					<option value="administrator">Администратор</option>
+				</select>
+			</div>
+			<input id="SubmitButton" type="submit" value="Отправить">
+		</div>
+	</form>
+	</div>
+</Layout>

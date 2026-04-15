@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="CarFast - Услуги" stylesheet="services" script="services">
+	<div class="UpperBlock">
+        <div class="BgDiv1"></div>
+        <div class="BgDiv2"></div>
+        <img class='UpperImg' src="upperservices.jpg">
+        <div class="UpperContent">
+            <h2 class="UpperTitle">Наши услуги</h2>
+            <p>Рады помочь с любой проблемой. Круглосуточная горячая линия​</p>
+            <a class="UpperButton" href="#">
+                <img class='UpperButtonImg' src="phone.png">
+                <p class="UpperButtonText">+1 (234) 567-8910</p>
+            </a>
+        </div>
+    </div>
+    <div class="Services">
+        <h2 class="ServicesTitle">Наши услуги включают в себя</h2>
+        <div class="ServicesShowcase">
+            <a href='#' class="TheService">
+                <p>Осмотр автомобиля</p>
+                <img id="Service1Img" src="services11.png">
+            </a>
+            <a href='#' class="TheService">
+                <p>Авторемонт</p>
+                <img id="Service2Img" src="services12.png">
+            </a>
+            <a href='#' class="TheService">
+                <p>Ремонт автомобильных стекол</p>
+                <img id="Service3Img" src="services13.png">
+            </a>
+            <a href='#' class="TheService">
+                <p>Замена масла</p>
+                <img id="Service4Img" src="services14.png">
+            </a>
+            <a href='#' class="TheService">
+                <p>Кузовные работы</p>
+                <img id="Service5Img" src="services15.png">
+            </a>
+            <a href='#' class="TheService">
+                <p>Осмотр автомобиля</p>
+                <img id="Service6Img" src="services16.png">
+            </a>
+        </div>
+    </div>
+    <div class="CallUs">
+        <img src="servicesemployment.jpg">
+        <div class="CallUsContent">
+            <h1>Звоните нам в любое время</h1>
+            <h1 class="CallUsNumber">+1 (234) 567-8910</h1>
+        </div>
+    </div>
+    <form class="Modal" id="Modal" method="POST">
+		<div class="ModalContent">
+			<h2></h2>
+			<span class="CloseModal">×</span>
+			<div class="ModalInput">
+				<label for="POST-date">Дата:</label>
+				<input id="InputDate" type="date" name="date" min=''required/>
+			</div>
+			<div class="ModalInput">
+				<label for="POST-time">Время:</label>
+				<input id="InputTime" type="time" name="time" min="09:00" max="19:00" required/>
+			</div>
+			<div class="ModalInput">
+				<label for="POST-name">Имя:</label>
+				<input id="InputFirstName" type="text" pattern="[а-яА-Я]*" name="first_name" placeholder="Иван" width="30" required/>
+			</div>
+            <div class="ModalInput">
+				<label for="POST-name">Фамилия:</label>
+				<input id="InputLastName" type="text" pattern="[а-яА-Я]*" name="last_name" placeholder="Иванов" width="30" required/>
+			</div>
+            <div class="ModalInput">
+				<label for="POST-phone">Телефон:</label>
+				<input id="InputPhone" type="tel" pattern="[0-9+]*" name="phone" maxlength="12" placeholder="+12345678910" required/>
+            </div>
+			<button id="SubmitButton" type="submit">Забронировать</button>
+		</div>
+	</form>
+</Layout>

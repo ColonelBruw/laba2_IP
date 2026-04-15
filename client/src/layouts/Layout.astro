@@ -1,0 +1,33 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import Script from '../components/Script.astro'
+// import Stylesheet from '../components/Stylesheet.astro'
+
+interface IProps {
+	title: string
+	stylesheet: string
+	script: string
+}
+
+const { title, stylesheet, script } = Astro.props as IProps
+const stylesheet_path = "/src/styles/" + stylesheet + ".css"
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image" href="/favicon.png" />
+		<link rel="stylesheet" href={stylesheet_path}>
+		<!-- <meta name="generator" content={Astro.generator} /> -->
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+		<Script script={script}/>
+	</body>
+</html>

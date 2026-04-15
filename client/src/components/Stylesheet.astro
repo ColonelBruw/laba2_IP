@@ -1,0 +1,10 @@
+---
+interface IProps {
+	style: string
+}
+
+const { style } = Astro.props as IProps
+const stylesheet_path = "../styles/" + style + ".css"
+---
+
+<link rel="stylesheet" href={stylesheet_path}>
