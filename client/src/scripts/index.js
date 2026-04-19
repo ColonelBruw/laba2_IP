@@ -64,7 +64,7 @@ window.addEventListener('click', function(event) {
 
 //Функция переключения темы
 function switchTheme() {
-        theme_btn_img = theme_btn.firstElementChild.src
+        const theme_btn_img = theme_btn.firstElementChild.src
         if (theme_btn_img.split("/").at(-1) === "moon.png") {
             document.documentElement.setAttribute('data-theme', 'dark');
             document.querySelector('#ThemeIcon').src = '/sun.jpg'

@@ -2,13 +2,15 @@
 import { defineConfig, envField } from 'astro/config';
 import { loadEnv } from "vite";
 
+import node from '@astrojs/node';
+
 // const { API_HOST } = loadEnv(process.env.API_HOST)
 
 // https://astro.build/config
 export default defineConfig({
-    devToolbar: {
-        enabled: false,
-  },
+  devToolbar: {
+      enabled: false,
+},
 
   env: {
     schema: {
@@ -16,4 +18,10 @@ export default defineConfig({
       API_PORT: envField.string({ context: 'client', access: 'public' }),
     },
   },
+
+  output: 'server',
+
+  adapter: node({
+    mode: 'standalone',
+  }),
 });

@@ -18,9 +18,9 @@ client/pnpm-debug.log*
 .env.production
 
 # pycache
-server/pycache
-server/controller/pycache
-server/model/pycache
+server/__pycache__
+server/controller/__pycache__
+server/model/__pycache__
 
 # macOS-specific files
 .DS_Store
