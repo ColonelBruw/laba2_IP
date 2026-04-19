@@ -1,5 +1,8 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
+import { loadEnv } from "vite";
+
+// const { API_HOST } = loadEnv(process.env.API_HOST)
 
 // https://astro.build/config
 export default defineConfig({

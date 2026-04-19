@@ -1,4 +1,5 @@
-// import { API_HOST, API_PORT } from 'astro:env/client';
+// Импортируем переменные окружения
+import { API_HOST, API_PORT } from 'astro:env/client';
 
 const modal = document.getElementById('Modal');
 const modal_btn = document.getElementById('EmploymentButton');
@@ -28,7 +29,7 @@ modal.onsubmit = async (event) => {
 
     try {
         // Отправка данных на FastAPI сервер
-        const response = await fetch(`http://localhost:8000/api/submit-job-application`, {
+        const response = await fetch(`http://${API_HOST}:${API_PORT}/api/submit-job-application`, {
             method: 'POST', 
             body: formData
         });

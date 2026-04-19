@@ -7,4 +7,4 @@ const { script } = Astro.props as IProps
 const script_src = "/src/scripts/" + script + ".js"
 ---
 
-<script src={script_src}></script>
+<script type="module" src={script_src}></script>

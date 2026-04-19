@@ -18,11 +18,12 @@ import re
 load_dotenv()
 
 app = FastAPI()
-
 # Настройка CORS для разрешения запросов с фронтенда
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[f"http://{os.getenv("APP_HOST")}:{os.getenv("APP_PORT")}"],  # Адрес Astro приложения
+    allow_origins=[f"http://{os.getenv("APP_HOST")}:{os.getenv("APP_PORT")}",   # Адрес Astro приложения
+                   f"http://{os.getenv("API_HOST")}:{os.getenv("API_PORT")}",],  # Адрес FastAPI приложения
+    # allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
