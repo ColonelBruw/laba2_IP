@@ -24,8 +24,8 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[f"http://{os.getenv("APP_HOST")}:{os.getenv("APP_PORT")}",   # Адрес Astro приложения
-                   f"http://{os.getenv("API_HOST")}:{os.getenv("API_PORT")}/api/submit_job_application",
-                   f"http://{os.getenv("API_HOST")}:{os.getenv("API_PORT")}/api/submit_service_appointment",],  # Адрес FastAPI приложения
+                   f"http://{os.getenv("API_HOST")}:{os.getenv("API_PORT")}/api/submit-job-application",
+                   f"http://{os.getenv("API_HOST")}:{os.getenv("API_PORT")}/api/submit-service-appointment",],  # Адрес FastAPI приложения
     # allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
