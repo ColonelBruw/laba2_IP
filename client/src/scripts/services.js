@@ -30,14 +30,14 @@ modal.onsubmit = async (event) => {
     submit_btn.disabled = true;
 
     const formData = new FormData(modal);
-    service_name = document.querySelector('.Modal h2').textContent
+    const service_name = document.querySelector('.Modal h2').textContent
     formData.append('service_name', service_name)
 
     console.log(formData)
 
     try {
         // Отправка данных на FastAPI сервер
-        const response = await fetch(`http://${API_HOST}:${API_HOST}/api/submit-service-appointment`, {
+        const response = await fetch(`http://${API_HOST}:${API_PORT}/api/submit-service-appointment`, {
             method: 'POST', 
             body: formData
         });
@@ -59,7 +59,7 @@ modal.onsubmit = async (event) => {
             alert("Ошибка на бекенде")
         }
     } catch (error) {
-        alert("Что-то пошло не так...")
+        alert("Что-то пошло не так: " + error.message)
     }
 }
 

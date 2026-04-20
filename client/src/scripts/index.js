@@ -51,7 +51,7 @@ modal.onsubmit = async (event) => {
             alert("Ошибка на бекенде")
         }
     } catch (error) {
-        alert("Что-то пошло не так...")
+        alert("Что-то пошло не так: " + error.message)
     }
 }
 

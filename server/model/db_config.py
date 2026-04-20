@@ -9,8 +9,8 @@ class DatabaseConfig:
     database: str
     user: str
     password: str
-    min_connections: int
-    max_connections: int
+    minconn: int
+    maxconn: int
 
 class DatabaseConnection:
     """Управление пулом соединений с БД"""
@@ -22,8 +22,8 @@ class DatabaseConnection:
     def connect(self):
         """Инициализация пула соединений"""
         self._pool = pool.SimpleConnectionPool(
-            self.config.min_connections,
-            self.config.max_connections,
+            minconn=self.config.minconn,
+            maxconn=self.config.maxconn,
             host=self.config.host,
             port=self.config.port,
             database=self.config.database,

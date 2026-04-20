@@ -14,8 +14,8 @@ client/yarn-error.log*
 client/pnpm-debug.log*
 
 # environment variables
-.env
-.env.production
+# .env
+# .env.production
 
 # pycache
 server/__pycache__

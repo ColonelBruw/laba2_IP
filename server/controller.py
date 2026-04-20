@@ -17,26 +17,31 @@ import re
 
 load_dotenv()
 
+print(os.getenv('DB_MIN_CONNS'))
+
 app = FastAPI()
 # Настройка CORS для разрешения запросов с фронтенда
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[f"http://{os.getenv("APP_HOST")}:{os.getenv("APP_PORT")}",   # Адрес Astro приложения
-                   f"http://{os.getenv("API_HOST")}:{os.getenv("API_PORT")}",],  # Адрес FastAPI приложения
+                   f"http://{os.getenv("API_HOST")}:{os.getenv("API_PORT")}/api/submit_job_application",
+                   f"http://{os.getenv("API_HOST")}:{os.getenv("API_PORT")}/api/submit_service_appointment",],  # Адрес FastAPI приложения
     # allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 config = DatabaseConfig(
         host = os.getenv('DB_HOST'),
+        # host = '0.0.0.0',
         port = os.getenv('DB_PORT'),
         database = os.getenv('DB_NAME'),
         user = os.getenv('DB_USER'),
         password = os.getenv('DB_PASSWORD'),
-        min_connections = os.getenv('DB_MIN_CONNS'),
-        max_connections = os.getenv('DB_MAX_CONNS')
+        minconn = os.getenv('DB_MIN_CONNS'),
+        maxconn = os.getenv('DB_MAX_CONNS')
     )
 
 # Валидация формы заявки на работу
@@ -80,6 +85,10 @@ async def handle_job_application(
         db.connect()
     except Exception as e:
         print("Не удалось подключиться к БД:", e)
+        return {
+            'status': '400',
+            'message': f'Проблемки'
+        }
     else:
         user_dao = UserDAO(db)
         job_application_dao = JobApplicationDAO(db)
@@ -107,7 +116,32 @@ async def handle_job_application(
 
         new_application_id = job_application_dao.create(new_application)
 
+    # db.connect()
+    # user_dao = UserDAO(db)
+    # job_application_dao = JobApplicationDAO(db)
 
+    # applicant_id = user_dao.get_id_by_name(first_name, last_name)
+    # if not applicant_id:
+    #     new_user = {
+    #         'first_name': first_name.lower().capitalize(),
+    #         'last_name': last_name.lower().capitalize(),
+    #         'phone_number': phone if phone[0] != '+' else phone[1:],
+    #         'email': email
+    #     }
+
+    #     applicant_id = user_dao.create(new_user)
+
+    # # Если телефон указанный в форме отличается от уже имеющегося в базе, 
+    # # то заменяем номер в БД на указанный в форме    
+    # elif user_dao.read(applicant_id)['phone_number'] != phone and user_dao.read(applicant_id)['phone_number'] != phone[1:]:
+    #     user_dao.update(applicant_id, {'phone_number': phone})
+    
+    # new_application = {
+    #     'position_name': pos,
+    #     'applicant_id': applicant_id
+    # }
+
+    # new_application_id = job_application_dao.create(new_application)
 
     return {
             'status': '200',
