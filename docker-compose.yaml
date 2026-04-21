@@ -12,12 +12,10 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
-      - PUBLIC_API_URL=http://${APP_HOST}:${APP_PORT}/api
+      - PUBLIC_API_URL=http://${API_HOST}:${API_PORT}/api
     depends_on:
       db:
         condition: service_started
-    networks:
-      - app_network
 
         
   server:
@@ -39,8 +37,6 @@ services:
         condition: service_started
       client:
         condition: service_started
-    networks:
-      - app_network
 
 
   db:
@@ -54,8 +50,6 @@ services:
       - ./db-data:/var/lib/postgresql
     ports:
       - "${DB_PORT}:${DB_PORT}"
-    networks:
-      - app_network
 
 
   pgadmin:
@@ -68,12 +62,6 @@ services:
       - "${PGA_HOST}:${PGA_PORT}"  # pgAdmin будет доступен на http://localhost:8080
     depends_on:
       - db 
-    networks:
-      - app_network
-
-networks:
-  app_network:
-    driver: bridge
 
 volumes:
   db-data:
